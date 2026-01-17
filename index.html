@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>황혼의 왕관: 영원을 잇는 꽃</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dnd-gold': '#d4af37',
+                        'dnd-dark': '#0f0c15',
+                        'dnd-grey': '#1f1b29',
+                        'twilight-accent': '#8b5cf6',
+                        'twilight-dark': '#4c1d95',
+                        'sunset-glow': '#fb923c',
+                    },
+                    fontFamily: {
+                        'fantasy': ['Cinzel', 'serif'],
+                        'body': ['Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f0c15; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #4c1d95, #d4af37); border-radius: 5px; }
+        ::selection { background: #8b5cf6; color: #fff; }
+        .bg-pattern {
+            background-color: #0f0c15;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d2d30' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-pattern text-gray-300 font-body antialiased flex flex-col min-h-screen">
+
+    <!-- 네비게이션 (고정) -->
+    <nav class="fixed w-full z-50 bg-dnd-dark/90 backdrop-blur-sm border-b border-twilight-accent/30">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- 로고: 클릭 시 홈으로 -->
+                <a href="#home" class="flex-shrink-0 flex items-center group cursor-pointer">
+                    <i class="fa-solid fa-crown text-dnd-gold text-2xl mr-2 group-hover:text-twilight-accent transition-colors"></i>
+                    <span class="font-fantasy font-bold text-xl text-white tracking-wider group-hover:text-dnd-gold transition-colors">Crown of Twilight</span>
+                </a>
+                
+                <!-- 데스크탑 메뉴: href를 #페이지이름 으로 설정 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-twilight-accent transition-colors duration-300">소개</a>
+                    <a href="#world" class="hover:text-twilight-accent transition-colors duration-300">스토리</a>
+                    <a href="#rules" class="hover:text-twilight-accent transition-colors duration-300">규칙</a>
+                    <a href="#apply" class="px-4 py-2 rounded border border-dnd-gold text-dnd-gold hover:bg-twilight-dark hover:text-white hover:border-twilight-dark transition-all duration-300 font-bold">참가 신청</a>
+                </div>
+
+                <!-- 모바일 메뉴 버튼 -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-twilight-accent focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dnd-dark border-b border-twilight-accent/30">
+            <a href="#home" class="block py-2 px-4 hover:bg-dnd-grey mobile-link">소개</a>
+            <a href="#world" class="block py-2 px-4 hover:bg-dnd-grey mobile-link">스토리</a>
+            <a href="#rules" class="block py-2 px-4 hover:bg-dnd-grey mobile-link">규칙</a>
+            <a href="#apply" class="block py-2 px-4 text-twilight-accent font-bold mobile-link">참가 신청</a>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 영역 (여기에 다른 HTML이 로드됨) -->
+    <main id="main-content" class="flex-grow pt-16 min-h-screen">
+        <!-- 로딩 중 표시 -->
+        <div class="flex justify-center items-center h-full pt-40">
+            <i class="fa-solid fa-circle-notch fa-spin text-4xl text-dnd-gold"></i>
+        </div>
+    </main>
+
+    <!-- 푸터 (고정) -->
+    <footer class="bg-black py-8 border-t border-gray-900 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+            <div class="mb-4 md:mb-0">
+                <span class="font-fantasy text-dnd-gold text-lg">Crown of Twilight</span>
+                <span class="ml-2">© 2024 D&D Campaign</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-twilight-accent transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="#" class="hover:text-twilight-accent transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 라우팅 스크립트 -->
+    <script>
+        // 모바일 메뉴 토글
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // 모바일 링크 클릭 시 메뉴 닫기
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // 페이지 로드 함수 (SPA 핵심 로직)
+        async function loadPage() {
+            // URL의 # 뒤에 있는 값을 가져옴 (없으면 home)
+            const page = location.hash.substring(1) || 'home';
+            const contentDiv = document.getElementById('main-content');
+            
+            // 스크롤 최상단으로 이동
+            window.scrollTo(0, 0);
+
+            try {
+                // 해당 html 파일을 fetch로 가져옴
+                const response = await fetch(`${page}.html`);
+                
+                if (!response.ok) {
+                    throw new Error('Page not found');
+                }
+
+                const html = await response.text();
+                contentDiv.innerHTML = `<div class="fade-in">${html}</div>`;
+                
+            } catch (error) {
+                contentDiv.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-[60vh] text-center">
+                        <h1 class="text-4xl font-fantasy text-dnd-red mb-4">404 Error</h1>
+                        <p>페이지를 찾을 수 없습니다.<br>길을 잃으셨나요, 모험가여?</p>
+                        <a href="#home" class="mt-4 text-dnd-gold underline">돌아가기</a>
+                    </div>
+                `;
+            }
+        }
+
+        // 해시(#)가 바뀔 때마다 loadPage 실행
+        window.addEventListener('hashchange', loadPage);
+        
+        // 처음 접속했을 때 실행
+        window.addEventListener('DOMContentLoaded', loadPage);
+    </script>
+</body>
+</html>
